@@ -8,10 +8,12 @@ const port = process.env.PORT || 3000;
 
 app.route('/')
 	.get((req, res) => {
+	var software = req.headers['user-agent'];
+	var language = req.headers['accept-language'];
       res.json({
-		  "ipaddress": "1.1.1.1",
-		  "language": "en-US",
-		  "software": "Neurally Embedded Microchip"
+		  "ipaddress": req.ip,
+		  "language": language,
+		  "software": software
 	  });
     });
 
